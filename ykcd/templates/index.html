@@ -1,0 +1,17 @@
+{% load static %}
+<html>
+<head>
+    <link rel="stylesheet" href="{% static "index.css" %}">
+
+
+
+</head>
+<body>
+<img src="{% static image_url %}">
+
+<button onclick="randomize()">
+    Random
+</button>
+</body>
+<script src="{% static "index.js" %}"></script>
+</html>
