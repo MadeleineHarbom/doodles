@@ -12,6 +12,17 @@ img {
 }
 
 body {
-    background-color: bisque;
+    animation: anim 5s linear 2s infinite alternate;
 }
 
+html {
+    animation: anim 2s linear 1s infinite alternate;
+}
+
+@keyframes anim {
+  0%   {background-color:red; left:0px; top:0px;}
+  25%  {background-color:yellow; left:200px; top:0px;}
+  50%  {background-color:blue; left:200px; top:200px;}
+  75%  {background-color:green; left:0px; top:200px;}
+  100% {background-color:red; left:0px; top:0px;}
+}
