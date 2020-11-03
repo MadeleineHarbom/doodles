@@ -1,0 +1,16 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<a href="{{ previous_url }}">PREVIOUS</a>
+<img style="width: 800px;" src="{% static comic_url %}">
+
+<a href="{{ next_url }}">NEXT</a>
+</body>
+</html>

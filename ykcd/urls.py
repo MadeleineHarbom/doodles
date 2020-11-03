@@ -16,9 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from lulz.views import random_lulz
+from lulz.views import random_lulz, comic
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', random_lulz)
+    path('', random_lulz),
+    path('comic/<int:comic_id>', comic, name='comic')
 ]

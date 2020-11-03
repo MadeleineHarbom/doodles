@@ -7,7 +7,21 @@
 
 </head>
 <body>
-<img src="{% static image_url %}">
+
+<table>
+    <tr>
+        <td><a href="/comic/0"><img src="{% static '1.jpg' %}"></a></td>
+        <td><a href="/comic/1"><img src="{% static '2.jpg' %}"></a></td>
+        <td><a href="/comic/2"><img src="{% static '3.jpg' %}"></a></td>
+    </tr>
+        <tr>
+        <td><a href="/comic/3"><img src="{% static '4.jpg' %}"></a></td>
+        <td><a href="/comic/4"><img src="{% static '5.jpg' %}"></a></td>
+        <td></td>
+    </tr>
+</table>
+
+
 
 <button onclick="randomize()">
     Random
