@@ -18,12 +18,18 @@
     <textarea name="comment_area" placeholder="comment"></textarea>
     <button onclick="saveComment(event)">SAVE</button>
 </form>
-
+<table>
 {% for o in comments %}
     <tr class="">
+    <td>
+
+        {{ o.user }}
+        :
        {{ o.text }}
+    </td>
     </tr>
 {% endfor %}
+</table>
 
 </body>
 </html>
