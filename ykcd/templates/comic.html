@@ -12,5 +12,18 @@
 <img style="width: 800px;" src="{% static comic_url %}">
 
 <a href="{{ next_url }}">NEXT</a>
+
+<form method="POST">
+    <input name="username" type="text" placeholder="user">
+    <textarea name="comment_area" placeholder="comment"></textarea>
+    <button onclick="saveComment(event)">SAVE</button>
+</form>
+
+{% for o in comments %}
+    <tr class="">
+       {{ o.text }}
+    </tr>
+{% endfor %}
+
 </body>
 </html>
