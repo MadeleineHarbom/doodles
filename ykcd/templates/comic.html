@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+     <link rel="stylesheet" href="{% static "comic.css" %}">
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
@@ -14,18 +15,19 @@
 <a href="{{ next_url }}">NEXT</a>
 
 <form method="POST">
+    <div>
     <input name="username" type="text" placeholder="user">
+        </div>
     <textarea name="comment_area" placeholder="comment"></textarea>
     <button onclick="saveComment(event)">SAVE</button>
 </form>
+
 <table>
 {% for o in comments %}
     <tr class="">
     <td>
 
-        {{ o.user }}
-        :
-       {{ o.text }}
+        {{ o.user }}: "{{ o.text }}"
     </td>
     </tr>
 {% endfor %}
