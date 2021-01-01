@@ -1,7 +1,44 @@
 body {
-    background-color: cornsilk;
+    background-color: beige;
 }
 
+#inputform {
+    width: 200px;
+}
 
+.comicinput {
+    width: 100%;
+    background-color: ghostwhite;
+    border-radius: 5px;
+}
+
+textarea {
+    resize: none;
+    height: 70px;
+}
+
+button {
+    width: 75px;
+}
+
+#buttonform {
+    position: relative;
+
+}
+
+#nextbutton {
+    float: right;
+}
+
+#previousbutton {
+    float: left;
+
+}
+
+#content-main {
+
+    max-width:800px;
+
+}
 
 

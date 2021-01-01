@@ -7,21 +7,20 @@
     <title>Title</title>
 </head>
 <body>
-
-
-<a href="{{ previous_url }}">PREVIOUS</a>
+<div id="content-main">
 <img style="width: 800px;" src="{% static comic_url %}">
-
-<a href="{{ next_url }}">NEXT</a>
-
-<form method="POST">
-    <div>
-    <input name="username" type="text" placeholder="user">
-        </div>
-    <textarea name="comment_area" placeholder="comment"></textarea>
-    <button onclick="saveComment(event)">SAVE</button>
+<form id="buttonform">
+    <button formaction="{{ previous_url }}" id="previousbutton">previous</button>
+    <button formaction="{{ next_url }}" id="nextbutton">next</button>
 </form>
-
+<form method="POST" id="inputform">
+    <div>
+        <input name="username" type="text" placeholder="user" class="comicinput">
+        <textarea name="comment_area" placeholder="comment" class="comicinput"></textarea>
+    </div>
+    <button onclick="saveComment(event)">POST</button>
+</form>
+</div>
 <table>
 {% for o in comments %}
     <tr class="">
@@ -32,6 +31,7 @@
     </tr>
 {% endfor %}
 </table>
+
 
 </body>
 </html>
