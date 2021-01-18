@@ -1,27 +1,28 @@
-.container {
-    height: 200px;
-    width: 200px;
-    margin: 4px;
 
-
-}
-
-.container a img {
-    width: 100%;
-    height: 100%;
-    border-radius: 0 0 10px 10px;
-    margin-top: 0px;
-}
 
 body {
     background-color: beige;
 }
-td    {
-    border: #f4f4f4 solid 1px;
 
+.thumbnail {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+}
+.thumbnail a img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 100%;
+  width: auto;
+  -webkit-transform: translate(-50%,-50%);
+      -ms-transform: translate(-50%,-50%);
+          transform: translate(-50%,-50%);
 }
 
-p{
-    margin-bottom: 0px;
-    margin-top: 10px;
+.thumbnail a img.pic {
+    width: 100%;
+    height: 100%;
 }
+
