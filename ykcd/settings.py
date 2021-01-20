@@ -118,3 +118,5 @@ STATIC_URL = '/static/'
 STATIC_ROOT = "./static/"
 
 django_heroku.settings(locals())
+
+SECURE_SSL_REDIRECT = True
