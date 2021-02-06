@@ -16,7 +16,10 @@
 </form>
 <form method="POST" id="inputform">
     <div>
-        <input name="username" type="text" placeholder="user" class="comicinput">
+        {% if not user.is_authenticated %}
+            <input name="username" type="text" placeholder="user" class="comicinput">
+        {% endif %}
+
         <textarea name="comment_area" placeholder="comment" class="comicinput"></textarea>
     </div>
     <button>POST</button>

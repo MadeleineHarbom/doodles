@@ -119,5 +119,4 @@ STATIC_ROOT = "./static/"
 
 django_heroku.settings(locals())
 
-SECURE_SSL_REDIRECT = True
-#Comment to make sure everything isnt up to date on heroku
+#SECURE_SSL_REDIRECT = True

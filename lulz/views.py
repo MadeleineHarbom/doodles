@@ -2,9 +2,9 @@ import json
 import random
 
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # Create your views here.
 from django.urls import reverse
@@ -18,17 +18,24 @@ images = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg'
           '11.jpg', '12.jpg', '13.jpg', '14.jpg', '15.jpg', '16.jpg', '17.jpg']
 
 
+#rename...
 def random_lulz(request):
     imgage = random.choice(images)
-    template = render(request, "index.html", {'image_url': imgage})
+    template = render(request, "index.html", {'image_url': imgage}) #delete image_url
     return HttpResponse(template)
 
+
+#TODO random lulz
 
 @csrf_exempt
 def comic(request, comic_id):
     if request.method == 'POST':
         #called if one is posting a comment
-        Comment.objects.create(text=request.POST.get('comment_area'), comic_id=comic_id, user=request.POST.get("username"))
+        if request.user.is_authenticated:
+            username = request.user.username
+            Comment.objects.create(text=request.POST.get('comment_area'), comic_id=comic_id, user=username)
+        else:
+            Comment.objects.create(text=request.POST.get('comment_area'), comic_id=comic_id, user=request.POST.get("username"))
     comments = Comment.objects.filter(comic_id=comic_id)
     #filter does SQL queries for you
     template = render(request, 'comic.html', {
@@ -43,7 +50,7 @@ def comic(request, comic_id):
 
 
 @csrf_exempt
-def login(request):
+def login_view(request):
     if request.method == 'GET':
         template = render(request, 'login.html') #it aint pretty
         return HttpResponse(template)
@@ -53,7 +60,8 @@ def login(request):
         password = data.get('password')
         user = authenticate(username=user_name, password=password)
         if user is not None:
-            return HttpResponse(render(request, 'index.html'))
+            login(request, user)
+            return redirect(random_lulz)
         else:
             return HttpResponse(render(request, 'login.html'))
 
@@ -77,4 +85,7 @@ def signup(request):
         else:
             template = render(request, 'signup.html')
             return HttpResponse(template)
-        
+
+def logout_view(request):
+    logout(request)
+    return redirect(random_lulz)
