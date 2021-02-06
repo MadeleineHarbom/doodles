@@ -78,10 +78,11 @@ def signup(request):
         password2 = data.get('password2')
         #check that the username is unique
         if password == password2:
-            User.objects.create_user(username=user_name, password=password)
+            user = User.objects.create_user(username=user_name, password=password)
             #create_user saves in db automatically
+            login(request, user)
             template = render(request, 'index.html')
-            return HttpResponse(template)
+            return redirect(random_lulz)
         else:
             template = render(request, 'signup.html')
             return HttpResponse(template)
