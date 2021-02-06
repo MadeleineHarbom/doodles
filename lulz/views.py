@@ -52,6 +52,8 @@ def comic(request, comic_id):
 @csrf_exempt
 def login_view(request):
     if request.method == 'GET':
+        if request.user.is_authenticated:
+            return redirect(random_lulz)
         template = render(request, 'login.html') #it aint pretty
         return HttpResponse(template)
     if request.method == 'POST':
@@ -69,6 +71,8 @@ def login_view(request):
 @csrf_exempt
 def signup(request):
     if request.method == 'GET':
+        if request.user.is_authenticated:
+            return redirect(random_lulz)
         template = render(request, 'signup.html')
         return HttpResponse(template)
     elif request.method == 'POST':
