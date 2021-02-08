@@ -7,15 +7,15 @@
 </head>
 <body>
 <div class="jumbotron">
-<div class="login" >
-    {% if user.is_authenticated %}
+    <div class="login" >
+        {% if user.is_authenticated %}
 
             <a href="/logout">Log out</a>
-    {% else %}
-        <a href="/signup">Sign Up</a>
-        <a href="/login">Log in</a>
-    {% endif %}
-</div>
+        {% else %}
+            <a href="/signup">Sign Up</a>
+            <a href="/login">Log in</a>
+        {% endif %}
+    </div>
 
   <h1 class="display-4">Byte sized doodles</h1>
   <p class="lead">The tapas of geeky amateur comics</p>

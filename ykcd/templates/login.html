@@ -6,11 +6,24 @@
 </head>
 <body>
 <form method="POST" id="inputform">
+    {% if user.is_authenticated %}
+        <p>You are already logged in</p>
+
+        <a href="/">Back</a>
+
+        {% else %}
     <div>
+
         <input name="user_name" type="text" placeholder="username" class="logininput">
         <input name="password" type="password" placeholder="password" class="logininput">
     </div>
+        <p>
+        {% if error %}
+            {{ error }}
+        {% endif %}
+    </p>
     <button>POST</button>
+    {% endif %}
 </form>
 </body>
 </html>

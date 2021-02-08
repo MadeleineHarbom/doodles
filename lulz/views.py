@@ -52,8 +52,6 @@ def comic(request, comic_id):
 @csrf_exempt
 def login_view(request):
     if request.method == 'GET':
-        if request.user.is_authenticated:
-            return redirect(random_lulz)
         template = render(request, 'login.html') #it aint pretty
         return HttpResponse(template)
     if request.method == 'POST':
@@ -65,30 +63,35 @@ def login_view(request):
             login(request, user)
             return redirect(random_lulz)
         else:
-            return HttpResponse(render(request, 'login.html'))
+            return HttpResponse(render(request, 'login.html', {'error': 'Invalid username or password'}))
 
 
 @csrf_exempt
 def signup(request):
     if request.method == 'GET':
         if request.user.is_authenticated:
-            return redirect(random_lulz)
-        template = render(request, 'signup.html')
-        return HttpResponse(template)
+            template = render(request, 'signup.html', {'error': 'You are already logged in'})
+            return HttpResponse(template)
+        else:
+            template = render(request, 'signup.html')
+            return HttpResponse(template)
     elif request.method == 'POST':
         data = request.POST
         user_name = data.get('user_name')
         password = data.get('password1')
         password2 = data.get('password2')
         #check that the username is unique
-        if password == password2:
+        if User.objects.get(username=user_name):
+            template = render(request, 'signup.html', {'error': 'Username already in use'})
+            return HttpResponse(template)
+        elif password == password2:
             user = User.objects.create_user(username=user_name, password=password)
             #create_user saves in db automatically
             login(request, user)
             template = render(request, 'index.html')
             return redirect(random_lulz)
         else:
-            template = render(request, 'signup.html')
+            template = render(request, 'signup.html', {'error': 'Passwords did not match'})
             return HttpResponse(template)
 
 def logout_view(request):
