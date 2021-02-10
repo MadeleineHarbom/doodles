@@ -91,18 +91,20 @@ def signup(request):
         password = data.get('password1')
         password2 = data.get('password2')
         #check that the username is unique
-        if User.objects.get(username=user_name):
+        try :
+            User.objects.get(username=user_name)
             template = render(request, 'signup.html', {'error': 'Username already in use'})
             return HttpResponse(template)
-        elif password == password2:
-            user = User.objects.create_user(username=user_name, password=password)
-            #create_user saves in db automatically
-            login(request, user)
-            template = render(request, 'index.html')
-            return redirect(random_lulz)
-        else:
-            template = render(request, 'signup.html', {'error': 'Passwords did not match'})
-            return HttpResponse(template)
+        except:
+            if password == password2:
+                user = User.objects.create_user(username=user_name, password=password)
+                #create_user saves in db automatically
+                login(request, user)
+                template = render(request, 'index.html')
+                return redirect(random_lulz)
+            else:
+                template = render(request, 'signup.html', {'error': 'Passwords did not match'})
+                return HttpResponse(template)
 
 def logout_view(request):
     logout(request)
