@@ -14,18 +14,27 @@ from lulz.models import Comment
 
 #A view function, or view for short, is a Python function that takes a Web request and returns a Web response
 
-images = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg',
-          '11.jpg', '12.jpg', '13.jpg', '14.jpg', '15.jpg', '16.jpg', '17.jpg']
 
+#images = ['0.jpg', '1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg',
+#       '10.jpg', '11.jpg', '12.jpg', '13.jpg', '14.jpg', '15.jpg', '16.jpg']
+
+images = {'0': 'Just a little...', '1': 'Working station', '2': 'Keep distance',
+          '3': 'Priotities', '4': 'How to avoid stress', '5': 'Keeping up apperances',
+          '6': 'Date night', '7': 'Hobbies', '8':'Loniness',
+          '9': 'Impossible problems', '10': 'Pre meeting', '11': 'D&D',
+          '12': 'Risk analysis', '13': 'Hostile workenviroment', '14': 'Happy New Year',
+          '15': 'Dressing up', '16': 'When you\'re to shy to talk to peple'}
 
 #rename...
 def random_lulz(request):
-    imgage = random.choice(images)
-    template = render(request, "index.html", {'image_url': imgage}) #delete image_url
+    #imgage = random.choice(images)
+    template = render(request, "index.html", {'comics': images})
     return HttpResponse(template)
 
 
 #TODO random lulz
+def randomized_comic(request):
+    imgage = random.choice(images)
 
 @csrf_exempt
 def comic(request, comic_id):
@@ -43,7 +52,8 @@ def comic(request, comic_id):
         'previous_url': reverse('comic', kwargs={'comic_id': comic_id - 1 if comic_id > 0 else len(images) - 1}),
         'next_url': reverse('comic', kwargs={'comic_id': comic_id + 1 if comic_id < len(images) - 1 else 0}),
         'comments': comments,
-        'comic_url': images[comic_id]
+        'comic_id': comic_id,
+        'name': images[str(comic_id)]
     })
     #kwargs = key value arguments
     return HttpResponse(template)

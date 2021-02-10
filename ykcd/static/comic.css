@@ -41,5 +41,9 @@ button {
     max-width:800px;
 
 }
+.login {
+    position: absolute;
+    right: 16px;
+}
 
 
