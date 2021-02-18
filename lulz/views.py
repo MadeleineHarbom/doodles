@@ -109,3 +109,7 @@ def signup(request):
 def logout_view(request):
     logout(request)
     return redirect(random_lulz)
+
+def cv_view(request):
+    template = render(request, 'CV.html')
+    return HttpResponse(template)

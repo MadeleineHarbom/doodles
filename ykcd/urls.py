@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from lulz.views import random_lulz, comic, login_view, signup, logout_view
+from lulz.views import random_lulz, comic, login_view, signup, logout_view, cv_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,5 +24,6 @@ urlpatterns = [
     path('comic/<int:comic_id>', comic, name='comic'),
     path('login/', login_view),
     path('signup/', signup),
-    path('logout/', logout_view)
+    path('logout/', logout_view),
+    path('CV/', cv_view)
 ]
