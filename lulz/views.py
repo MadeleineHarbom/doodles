@@ -31,6 +31,10 @@ def random_lulz(request):
     template = render(request, "index.html", {'comics': images})
     return HttpResponse(template)
 
+def typescript(request):
+    template = render(request, "typescript.html")
+    return HttpResponse(template)
+
 
 #TODO random lulz
 def randomized_comic(request):
