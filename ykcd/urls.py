@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from lulz.views import random_lulz, comic, login_view, signup, logout_view, cv_view, typescript
+from lulz.views import random_lulz, comic, login_view, signup, logout_view, cv_view, typescript,freetrailer
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,5 +26,6 @@ urlpatterns = [
     path('signup/', signup),
     path('logout/', logout_view),
     path('CV/', cv_view),
-    path('freetrailer/typescript/', typescript)
+    path('freetrailer/typescript/', typescript),
+    path('freetrailer/', freetrailer)
 ]

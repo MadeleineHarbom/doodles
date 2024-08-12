@@ -32,7 +32,11 @@ def random_lulz(request):
     return HttpResponse(template)
 
 def typescript(request):
-    template = render(request, "typescript.html")
+    template = render(request, "freetrailer/typescript.html")
+    return HttpResponse(template)
+
+def freetrailer(request):
+    template = render(request, "freetrailer/freetrailer.html")
     return HttpResponse(template)
 
 

@@ -3,7 +3,7 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{% static "index.css" %}">
+    <link rel="stylesheet" href="{% static "styles/index.css" %}">
 </head>
 <body>
 <div class="jumbotron">
@@ -32,7 +32,7 @@
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 gallery-outer">
             <p>{{ value }}</p>
                 <div class="thumbnail">
-                    <a href="/comic/{{ key }}"><img src="{% static "" %}{{ key }}.jpg" class="pic"></a>
+                    <a href="/comic/{{ key }}"><img src="{% static comics/"" %}{{ key }}.jpg" class="pic"></a>
                 </div>
             </div>
         {% endfor %}
