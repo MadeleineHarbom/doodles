@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from lulz.views import random_lulz, comic, login_view, signup, logout_view, cv_view, typescript,freetrailer
+from lulz.views import random_lulz, comic, login_view, signup, logout_view, cv_view, typescript, freetrailer, freetrailer_category
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,5 +27,6 @@ urlpatterns = [
     path('logout/', logout_view),
     path('CV/', cv_view),
     path('freetrailer/typescript/', typescript),
-    path('freetrailer/', freetrailer)
+    path('freetrailer/', freetrailer),
+    path('freetrailer/category/<str:category>', freetrailer_category, name='category')
 ]

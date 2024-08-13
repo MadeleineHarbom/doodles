@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-     <link rel="stylesheet" href="{% static "comic.css" %}">
+     <link rel="stylesheet" href="{% static "styles/comic.css" %}">
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
@@ -28,7 +28,7 @@
 </div>
 <div id="content-main">
 
-<img style="width: 800px;" src="{% static "" %}{{ comic_id }}.jpg">
+<img style="width: 800px;" src="{% static "comics/" %}{{ comic_id }}.jpg">
 <form id="buttonform">
     <button formaction="{{ previous_url }}" id="previousbutton">previous</button>
     <button formaction="{{ next_url }}" id="nextbutton">next</button>

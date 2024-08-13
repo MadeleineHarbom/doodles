@@ -1,0 +1,156 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TypeScript</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static "styles/freetrailer.css" %}">
+
+  </head>
+  <body>
+	<script src="index.js"></script>
+    <div>
+        {% include 'freetrailer/header.html' %}
+    </div>
+  <div class="container">
+    
+ 
+      {% include 'freetrailer/sidebar.html' %}
+
+  <div class="content">
+ 
+  </div>
+  </body>
+  <h3>{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TypeScript</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static "styles/freetrailer.css" %}">
+
+  </head>
+  <body>
+	<script src="index.js"></script>
+    <div>
+        {% include 'freetrailer/header.html' %}
+    </div>
+    <div class="container">
+      {% include 'freetrailer/sidebar.html' %}
+        <div class="content">
+            <h3>Paradigms</h3>
+            <p>A programming paradism works by removing freedom and constrains us, by limiting our options, in ways that tend to help us reduce or avoid mistakes</p>
+            <span>Quote by Uncle Bob</span>
+            <span>Paraphrasing and butchering by Made</span>
+            <p>I am sorry that I, long ago, coined the term "Objects" for this topic, because it gets many people to focus on the lesser idea.
+                The big idea is messaging!</p>
+            <span>Quote by Alan Key, inventor of Object Oriented Programming</span>
+            <table>
+                
+                <thead>
+                  <tr>
+                      <th>Religion</th>
+                      <th>Concept</th>
+                      <th>Pros</th>
+                      <th>Cons</th>
+                      <th>Alternatives</th>
+                  </tr>
+              </thead>
+                <tbody>
+                    <tr>
+                        <td>Structured Programming</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                <tr>
+                    <td>Orthodox OO</td>
+                    <td>Explain me!</td>
+                 
+                    <td><ul>
+                        <li>Forces the dev to think head</li>
+                        <li>Encouraged a wholistic design</li>
+                        <li>Polymorphism encouranges planning and code reuse</li>
+                        <li>Abstraction you have control over</li>
+                        <li>Each function or method belongs to its class or object<ul><li>Easy to see where it belongs</li></ul></li>
+                        <li>Clear and estabilshed pattern create a univefral language everyone who knows OO can easily understand</li>
+                    </ul></td>
+                    <td><ul>
+                        <li>Many OO patterns are only valid on larger scaled projects</li>
+                        <li>Keeping track of all patterns is a mouthful<ul><li>I have some great books though, if anyone wants to borrow</li></ul></li>
+                        <li>Pitfall of overengineering</li>
+                    </ul></td>
+                  </tr>
+                  <tr>
+                    <td>Functional</td>
+                    <td>Contrains Assgnment: Code with no side effects. The input is never changed. Each function works with only the input. It has no state. "Seperate data and function"
+                      Programming with maths
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>OO</td>
+                    <td>Programming is modelling</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <!-- move to patterns -->
+                  <tr>
+                    <td>BFF</td>
+                    <td>Each front end has its own backend</td>
+                    <td>Pros: The BFF calls the microservices, and gets what it needs for its specific frontends
+                      It is easier to change the BFF for each frontend, without risking messing stuff up for the others
+                      The BFF also protects the appication layer from changes in the backend
+                    </td>
+                    <td></td>
+                    <td>Alternatives: Direct point to point</td>
+                  </tr>
+                  <tr>
+                    <td>Direct point to point</td>
+                    <td>You call the API, when you need, asking for what you need</td>
+                    <td>Pros:</td>
+                    <td>Cons: The front end has to understand much more about the backend
+                      the data coming back may not to structured in a way the front end wants it.
+                      If there are different frontends calling the backend, they may not get what they need
+                    </td>
+                    <td>Alternatives: Direct point to point</td>
+                  </tr>
+                  <tr>
+                    <td>REST</td>
+                    <td>Returns a complete set of data
+                      If you ask for prodict by id, you get the entire product obejct
+                    </td>
+                    <td>Pros: Simple</td>
+                    <td>Cons: Overfetching</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>graphQL</td>
+                    <td>You request what data you want in a schema</td>
+                    <td>Pros: Reduces overfetching. More flexibility</td>
+                    <td>Conts: Less widespread. Catching is not very complatilbe with CDNs, since ti spans multiple resources in one request. Ratelimiting can be hard, even though the app is just calling the API once, the API can do mukltiple calls. Demands defencive coding </td>
+                    <td></td>
+                  </tr>
+            
+                </tbody>
+              </table>
+        </div>
+    </div>
+  </body>
+
+
+
+</html>

@@ -23,7 +23,7 @@
       {% include 'freetrailer/sidebar.html' %}
 
   <div class="content">
-    {% include content %}
+    {{ content|safe }}
      </div>
 
   </body>

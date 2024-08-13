@@ -1,6 +1,8 @@
 import json
 import random
+import os
 
+from django.conf import settings
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
@@ -36,7 +38,38 @@ def typescript(request):
     return HttpResponse(template)
 
 def freetrailer(request):
-    template = render(request, "freetrailer/freetrailer.html")
+    file_name = "404.html"
+    file_path = os.path.join(settings.BASE_DIR, "ykcd", "static","freetrailer", file_name)
+    with open(file_path, 'r') as file:
+        file_content = file.read()
+    template = render(request, "freetrailer/index.html", {'content': file_content})
+    return HttpResponse(template)
+
+def freetrailer_category(request, category):
+    file_name = "404.html"
+    #lol dude, wtf :P
+    if category == "typescript":
+        file_name = "typescript.html"
+    elif category == "process":
+        file_name = "process.html"
+    elif category == "CICD":
+        file_name = "CICD.html"
+    elif category == "paradigms":
+        file_name = "paradigms.html"
+    elif category == "objectoriented":
+        file_name == "object_oriented.html"
+    elif category == "serverless":
+        file_name == "serverless.html"
+    elif category == "security":
+        file_name == "security.html"
+    elif category == "test":
+        file_name == "test.html"
+    elif category == "resources":
+        file_name == "resources.html"
+    file_path = os.path.join(settings.BASE_DIR, "ykcd", "static","freetrailer", file_name)
+    with open(file_path, 'r') as file:
+        file_content = file.read()
+    template = render(request, "freetrailer/index.html", {'content': file_content})
     return HttpResponse(template)
 
 
