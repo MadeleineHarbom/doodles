@@ -17,12 +17,19 @@
 body {
     background-color: #f4fcff;
     color: #060c10;
+    margin: 0;
+    padding: 0;
+    width:100%;
+    overflow-x: hidden;
 }
-table {
 
+table {
+    margin-left:5px;
+    margin-right:5px;
     border-collapse: collapse;
-    padding: 20px;
- 
+    padding: 10px;
+    box-sizing: content-box;
+    max-width: fit-content;
 }
 
 table, th, td {
@@ -32,12 +39,16 @@ th, td {
     padding: 8px;
     text-align: left;
 }
+
 th {
     background-color: #f2f2f2;
 }
 
 .comment {
     font-style:italic;
+}
+.explinations {
+    padding:10px;
 }
 
 .sidebar {
@@ -46,19 +57,17 @@ th {
     float:left;
     margin-left: 0;
     flex: 1;
-    background-color: #f8f9fa!important
-
+    background-color: #f8f9fa!important;
+    flex-shrink: 0;
+    width:400px;
 }
 
 .content {
-    margin: 10px;
+    margin-top:25px;
+    display: flex;
+    padding-left: 50px;
+    box-sizing: content-box;
 }
-
-/*
-body {
-    display: flex;          
-    min-height: 100vh; 
-}*/
 
 .header {
     background-color: #557e96;
@@ -70,6 +79,7 @@ body {
     height: 60px;
 }
 
+
 .link {
     display: inline;
     float:right; 
@@ -78,17 +88,17 @@ body {
 
 .container {
 
-    width:100vw;
+    margin-right:2px;
+    margin-left:0;
+    height: 100vh; 
+    width: 100%;
+    padding: 0;
 
-    margin:0;
-    overflow: hidden;
-    padding-left: 0;
-    display: block;
+    
 }
 
 .debug {
     border: #18ef14 solid 3px;
-
 }
 
 

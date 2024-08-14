@@ -38,16 +38,13 @@ def typescript(request):
     return HttpResponse(template)
 
 def freetrailer(request):
-    file_name = "404.html"
-    file_path = os.path.join(settings.BASE_DIR, "ykcd", "static","freetrailer", file_name)
-    with open(file_path, 'r') as file:
-        file_content = file.read()
-    template = render(request, "freetrailer/index.html", {'content': file_content})
+    template = render(request, "freetrailer/index.html", {'content': "<div></div>"})
     return HttpResponse(template)
 
 def freetrailer_category(request, category):
     file_name = "404.html"
     #lol dude, wtf :P
+    #Dry this shit the f* up
     if category == "typescript":
         file_name = "typescript.html"
     elif category == "process":
@@ -57,15 +54,17 @@ def freetrailer_category(request, category):
     elif category == "paradigms":
         file_name = "paradigms.html"
     elif category == "objectoriented":
-        file_name == "object_oriented.html"
+        file_name = "object_oriented.html"
     elif category == "serverless":
-        file_name == "serverless.html"
+        file_name = "serverless.html"
     elif category == "security":
-        file_name == "security.html"
+        file_name = "security.html"
     elif category == "test":
-        file_name == "test.html"
+        file_name = "test.html"
     elif category == "resources":
-        file_name == "resources.html"
+        file_name = "resources.html"
+    elif category == "review":
+        file_name = "review_process.html"
     file_path = os.path.join(settings.BASE_DIR, "ykcd", "static","freetrailer", file_name)
     with open(file_path, 'r') as file:
         file_content = file.read()
